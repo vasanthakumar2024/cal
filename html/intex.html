@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Calculater</title>
+<style>
+    body{
+        margin: 50px;
+        text-align: center;
+        background-color: black;
+        color: white;
+    }
+    #Calculater{
+        max-width: 300px;
+        margin: auto;
+        border: 2px solid rgb(78, 238, 250);
+        padding: 10px;
+        box-shadow: 0 0 10px rgb(68, 67, 67, 0.8);
+
+    }
+    input{
+        margin-bottom: 10px;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        background-color: #2c2c2c;
+        color: white;
+
+    }
+    button{
+        width: 22%;
+        padding: 10px;
+        margin: 2px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: aqua;
+        transition: background-color 0.3s ease;
+
+    }
+    button:hover{
+        background-color: rgb(41, 123, 218);
+    }
+    #result{
+        background-color: rgb(72, 204, 72);
+    }
+    #result:hover{
+        background-color: rgb(5, 104, 5);
+    }
+    #clear{
+        background-color: rgb(173, 65, 65)
+    }
+    #clear:hover{
+        background-color: red;
+    }
+</style>
+</head>
+<body>
+    <h1>Calculater</h1>
+    <div id="Calculater">
+        <input type="text" id="display" disabled>
+        <br>
+        <button onclick="appToDisplay('1')">1</button>
+        <button onclick="appToDisplay('2')">2</button>
+        <button onclick="appToDisplay('3')">3</button>
+        <button onclick="appToDisplay('+')">+</button>
+        <br>
+        <button onclick="appToDisplay('4')">4</button>
+        <button onclick="appToDisplay('5')">5</button>
+        <button onclick="appToDisplay('6')">6</button>
+        <button onclick="appToDisplay('-')">-</button>
+        <br>
+        <button onclick="appToDisplay('7')">7</button>
+        
+        <button onclick="appToDisplay('8')">8</button>
+        <button onclick="appToDisplay('9')">9</button>
+        <button onclick="appToDisplay('*')">*</button>
+        <br>
+        <button onclick="clearDisplay('c')" id="clear">c</button>
+     
+        <button onclick="appToDisplay('0')">0</button>
+        
+        
+        <button onclick="calResult('=')" id="result">=</button>
+        <button onclick="appToDisplay('/')">/</button>
+    </div>
+
+
+<script>
+    function appToDisplay(value){
+        document.getElementById("display").value +=value; 
+    }
+    function clearDisplay(){
+        document.getElementById("display").value="";
+    }
+    function calResult(){
+        var expression=document.getElementById("display").value;
+        var result;
+        try{
+            result= eval(expression);
+            document.getElementById("display").value=result;
+        }catch(error){
+            document.getElementById("display").value="Error";
+        }
+        
+    }
+</script>
+    
+</body>
+</html>
